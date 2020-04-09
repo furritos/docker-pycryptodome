@@ -7,6 +7,7 @@ This repository contains `Dockerfiles` for the following version of Python
  - 3.5
  - 3.6
  - 3.7
+ - 3.8
 
 The advantage of this `Dockerfile` is that it relies on the `alpine` builds of Python (latest) and by doing so, will always pull the latest and greatest.
 
@@ -19,9 +20,10 @@ The following tags are available:
  - `3.5-alpine`
  - `3.6-alpine`
  - `3.7-alpine`
+ - `3.8-alpine`
 
-For example, pulling the latest Python 3.7 build would be:
+For example, pulling the latest Python 3.8 build would be:
 
 ```
-docker pull furritos/pycryptodome:3.7-alpine
+docker pull furritos/pycryptodome:3.8-alpine
 ```
