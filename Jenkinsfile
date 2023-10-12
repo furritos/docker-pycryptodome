@@ -3,6 +3,7 @@ pipeline {
    agent { 
       node { 
          label 'jenkins-agent'
+         checkout scmGit(branches: [[name: '*/v2.7']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/furritos/docker-pycryptodome']])
       }
    }
 
@@ -25,10 +26,7 @@ pipeline {
             script {
                echo "Bulding docker images"
                def buildArgs = "-f Dockerfile ."
-               def customImage = docker.build("${params.Image_Name}:${params.Image_Tag}", buildArgs)
-               customImage.inside {
-                  sh 'microdnf install git'
-               }
+               docker.build("${params.Image_Name}:${params.Image_Tag}", buildArgs)
             }
          }
       }
