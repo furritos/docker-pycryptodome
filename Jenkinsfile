@@ -14,13 +14,14 @@ pipeline {
    parameters {
       string(name: "DockerHub_Name", defaultValue: 'furritos', description: 'DockerHub repository name')
       string(name: "Branch_Name", defaultValue: 'v2.7', description: '')
-      string(name: "Image_Name", defaultValue: 'furritos/pycryptodome', description: 'Image name')
+      string(name: "Image_Name", defaultValue: 'pycryptodome', description: 'Image name')
       string(name: "Image_Tag", defaultValue: '2.7-alpine', description: 'Image tag')
       booleanParam(name: "PushImage", defaultValue: true)
    }
 
    stages {
-      stage("Build docker images") {
+
+      stage("Build Docker images") {
          steps {
             script {
                echo "Bulding docker images"
@@ -37,9 +38,9 @@ pipeline {
          }
          steps {
             script {
-               echo "Pushing the image to docker hub"
+               echo "Pushing the image to Docker hub"
                def localImage = "${params.Image_Name}:${params.Image_Tag}"
-               def repositoryName = "${params.Image_Name}:${params.Image_Tag}"
+               def repositoryName = "${params.DockerHub_Name}/${localImage}"
                sh "docker tag ${localImage} ${repositoryName} "
                docker.withRegistry("", "DockerHubCredential") {
                   def image = docker.image("${repositoryName}");
