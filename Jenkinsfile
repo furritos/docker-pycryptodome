@@ -16,7 +16,7 @@ pipeline {
       string(name: "Branch_Name", defaultValue: 'v2.7', description: '')
       string(name: "Image_Name", defaultValue: 'furritos/pycryptodome', description: 'Image name')
       string(name: "Image_Tag", defaultValue: '2.7-alpine', description: 'Image tag')
-      booleanParam(name: "PushImage", defaultValue: false)
+      booleanParam(name: "PushImage", defaultValue: true)
    }
 
    stages {
