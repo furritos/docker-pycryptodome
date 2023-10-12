@@ -3,7 +3,6 @@ pipeline {
    agent { 
       node { 
          label 'jenkins-agent'
-         checkout scmGit(branches: [[name: '*/v2.7']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/furritos/docker-pycryptodome']])
       }
    }
 
