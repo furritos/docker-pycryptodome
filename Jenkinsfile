@@ -14,7 +14,7 @@ pipeline {
    parameters {
       string(name: "DockerHub_Name", defaultValue: 'furritos', description: 'DockerHub repository name')
       string(name: "Branch_Name", defaultValue: 'v2.7', description: '')
-      string(name: "Image_Name", defaultValue: "${params.DockerHub_Name}/pycryptodome", description: 'Image name')
+      string(name: "Image_Name", defaultValue: 'furritos/pycryptodome', description: 'Image name')
       string(name: "Image_Tag", defaultValue: '2.7-alpine', description: 'Image tag')
       booleanParam(name: "PushImage", defaultValue: false)
    }
